@@ -1,3 +1,22 @@
-site_name: Clean Code
-theme:
-  name: gitbook
+site_name: FDIBA - Clean Code
+theme: readthedocs
+nav:
+  - Home: 'index.md'
+  - 'Über uns': about.md
+  - 'Modul 1':
+      - 'Was ist Clean Code?': 'module-1/what.md'
+      - 'Warum Clean Code?': 'module-1/why.md'
+      - 'Git': 'module-1/git.md'
+      - 'Namen': 'module-1/naming.md'
+      - 'Code-Struktur': 'module-1/structure.md'
+      - 'Logging': 'module-1/logging.md'
+      - 'Debugging': 'module-1/debugging.md'
+      - 'Kommentare': 'module-1/comments.md'
+  - 'Modul 2':
+      - module-2/automated-formatters.md
+      - module-2/dependency-injection.md
+      - module-2/do-one-thing-well.md
+      - module-2/exception-handling.md
+      - module-2/magic-numbers.md
+      - module-2/refactoring.md
+      - module-2/testability.md

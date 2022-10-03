@@ -1,17 +1,8 @@
-# Welcome to MkDocs
+# "Clean Code" - FDIBA - Winter Semester 2022
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Liebe Studenten,
 
-## Commands
+in den kommenden Wochen werden wir zusammen erarbeiten was es bedeutet "Clean Code" zu schreiben.
+Wir werden hierbei analysieren was genau es bedeutet "Clean Code" zu produzieren und welche Voraussetzungen wir hierfür erfüllen müssen.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Diese Dokumentation hierbei wird eine "living documentation" sein. Das bedeutet, sie wird kontinuierlich erweitert und auf agile Art und Weise nach und nach verbessert. Um nicht ständig das Rad neu zu erfinden werden wir viele existierenden Quelle nutzen und verlinken.
