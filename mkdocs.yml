@@ -8,7 +8,6 @@ nav:
       - 'Git': 'module-1/git.md'
       - 'Namen': 'module-1/naming.md'
       - 'Code-Struktur': 'module-1/structure.md'
-      - 'Logging': 'module-1/logging.md'
       - 'Debugging': 'module-1/debugging.md'
       - 'Kommentare': 'module-1/comments.md'
   - 'Modul 2':
