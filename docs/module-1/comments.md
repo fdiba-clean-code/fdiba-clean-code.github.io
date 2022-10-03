@@ -76,5 +76,5 @@ Dieses "Feature" ist gut gemeint, führt aber vor allem zu aufgeblähtem und sch
 
 
 # Quellen
-https://www.baeldung.com/cs/clean-code-comments
-https://medium.com/codex/clean-code-comments-833e11a706dc
+* [https://www.baeldung.com/cs/clean-code-comments](https://www.baeldung.com/cs/clean-code-comments)
+* [https://medium.com/codex/clean-code-comments-833e11a706dc](https://medium.com/codex/clean-code-comments-833e11a706dc)
