@@ -4,8 +4,7 @@ nav:
   - Home: 'index.md'
   - 'Über uns': about.md
   - 'Modul 1':
-      - 'Was ist Clean Code?': 'module-1/what.md'
-      - 'Warum Clean Code?': 'module-1/why.md'
+      - 'Einführung': 'module-1/introduction.md'
       - 'Git': 'module-1/git.md'
       - 'Namen': 'module-1/naming.md'
       - 'Code-Struktur': 'module-1/structure.md'
