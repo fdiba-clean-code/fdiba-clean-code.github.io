@@ -50,11 +50,11 @@
               </ul>
               <p class="caption"><span class="caption-text">Modul 1</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../what/">Was ist Clean Code?</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../why/">Warum Clean Code?</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/">Einführung</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Git</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../naming/">Namen</a>
                   </li>
@@ -108,12 +108,64 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="was-ist-source-control">Was ist Source Control?</h1>
+<p>Source Control beschreibt die Versionierung von Source Code, also das Speichern aller Code-Dateien zu einem bestimmten Zeitpunkt. Das Source Control System hat hierbei die Aufgabe sicherzustellen, dass ein Nutzer auch später zu einer früheren Version seines Source Codes zurückkehren kann - etwa um zu Vergleichen was sich geändert hat oder um komplett auf eine frühere Version zurückzukehren.</p>
+<h1 id="was-hat-source-control-mit-clean-code-zu-tun">Was hat Source Control mit Clean Code zu tun?</h1>
+<p>Ohne Source Control ist es sehr schwierig Source Code über eine lange Zeit sauber und wartbar zu halten.
+Entwickler verlieren die Übersicht darüber wann, von wem welche Änderung gemacht worden ist, was vor allem dann zu Problemen führt wenn mehrere Entwickler am gleichen Projekt arbeiten. 
+Beim Austausch von Code zwischen Entwicklern wird es sehr schwierig nachzuvollziehen welche Datei geändert worden ist und ob sich hieraus vielleicht Probleme ergeben, weil der neue Code von Entwickler A nicht zum neuen Code von Entwickler B passt.</p>
+<p>Ein Source Control System hilft dabei einen Code sauber und kompatibel zu behalten - auch wenn es weiterhin an den Entwicklern liegt, dies alles sicherzustellen.</p>
+<h1 id="was-ist-git">Was ist Git?</h1>
+<p>Git ist das Source Control System das sich als de facto Standard in der gesamten IT Welt durchgesetzt hat. Es ist hierbei ein sogenanntes Distributed Source Control System, d.h. jeder Client (meistens Entwickler-Computer) hält die gesamte Historie und den gesamten Source Code des Projekts.
+Jedes "Commit" vom Code und jeder "Push" zu einem anderen Client überträgt hierbei widerum die gesamten letzten Änderungen, nicht nur den finalen/aktuellen Stand.</p>
+<h1 id="commit-push">Commit, Push...?</h1>
+<p>Die folgenden Begriffe beschreiben die Haupt-Funktionalitäten von Git (sowieso eigentlich auch jedes anderen Source Control Systems).</p>
+<p>Eine kurze offizielle Einführung zu Git findet ihr <a href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository">hier</a>
+Eine detailliertere Referenz zu Git befindet sich <a href="https://git-scm.com/docs">hier</a></p>
+<h2 id="repository">Repository</h2>
+<p>Ein Git Repository ist eine Menge an Dateien die in Git verwaltet werden. Ein Repository besteht hierbei aus den Dateien selbst, mehreren Branches (d.h. parallelen Versionen) sowie der Historie/den Änderungen über die Zeit.</p>
+<h2 id="clone">Clone</h2>
+<p>Das Clonen eines Projekts ist das erste "Downloaden" eines Git Repositories auf die lokale Workstation, in der Regel vom zentralen Repository.</p>
+<h2 id="pull">Pull</h2>
+<p>Ein Git Pull ist das "Downloaden" von allen Änderungen die im zentralen Repository seit dem letzten Git Pull passiert sind.</p>
+<h2 id="branch">Branch</h2>
+<p>Branches beschreiben parallele Bearbeitungs-Stände innerhalb eines Git Repositories. 
+Ein Beispiel hierbei wäre ein Projekt mit 2 Entwicklern. Jeder Entwickler arbeitet an unterschiedlichen Features - aber sie müssen beide gleichzeitig die gleichen Dateien verändern. Um also nicht ständig Probleme mit den Änderungen des jeweils anderen Enwicklers zu bekommen startet jeder der Entwickler einen sogenannten "Branch". Solange er auf diesem Branch arbeitet, kann er jederzeit alle Dateien ändern aber der jeweils andere Entwickler sieht keine dieser Änderungen.
+Erst wenn sein Branch zurück in den Haupt-Branch "gemerged" wird, werden seine Änderungen für alle anderen sichtbar.</p>
+<p>Beim Branching entstehen sehr oft "Merge Conflicts", d.h. Probleme die daraus entstehen dass die gleiche Dateien in verschiedenen Branches verändert worden sind. Um dies zu reparieren muss in der Regel ein Entwickler beide Code-Versionen vergleichen und diese Zusammenführen.
+Je länger kein Merge stattgefunden hat, desto schwieriger wird das Mergen - es ist daher extrem wichtig so früh wie möglich einen Merge durchzuführen und einen Branch wieder zu löschen. Zudem sollten regelmässig die letzten Änderungen vom Haupt-Branch übernommen werden.</p>
+<h2 id="commit">Commit</h2>
+<p>Ein Commit ist das Abspeichern von einem Code-Stand zu einem bestimmten Zeitpunkt. Ein Commit beinhaltet normalerweise 1..n Dateien zusammen mit einer Commit Message, welche die Änderung beschreibt.
+Es ist bei einem Commit wichtig mit allen Entwicklern eine gemeinsame Konvention zu etablieren, wie Commit-Messages verfasst werden sollen. In der Regel beinhalten Commit-Messages daher oft die ID des Work Items zu dem diese Änderung gehört zusammen mit einer kurzen Beschreibung der eigentlichen Änderung.</p>
+<blockquote>
+<p>git commit -m "bug/123 Fixed validation logic for german zip codes"</p>
+</blockquote>
+<h2 id="addstage">Add/Stage</h2>
+<p>Beim "Adden" einer Datei nehmen wir sie in die Versionierung durch Git in diesem Repository mit auf. Bevor eine Datei geaddet wurde, werden ihre verschiedenen Versionsstände von Git ignoriert und nicht mit gespeichert.</p>
+<p>Beim Stagen markieren wir eine Änderung an einer Datei so, dass wir sie beim nächsten Commit mit "committen" wollen. Wenn eine Änderung nicht "gestaged" wurde, dann wird sie in der Regel bei einem Commit ignoriert. Es können nur Änderung von bereits "geaddeten" Dateien gestaged werden.</p>
+<h2 id="push">Push</h2>
+<p>Ein Push überträgt lokale Änderung (durch Commits) an ein anderes Git System, ein sogenanntes "Remote". Dies könnten theoretisch auch andere Entwickler Computer sein, in der Praxis hat sich aber etabliert dies an ein zentrales Repository zu senden, zu dem jeder Entwickler Zugriff hat. In den meisten Fällen wird dies ein System wie Github, Gitlab, Azure DevOps etc. sein.</p>
+<blockquote>
+<p>git push origin master</p>
+</blockquote>
+<h2 id="gitignore-file">.gitignore File</h2>
+<p>Das .gitignore File in einem Projekt beschreibt die Dateien, die nicht mit in das Repository commited werden sollen. Dies sind in der Regel vor allem Dateien die
+immer wieder automatisch generiert werde (Builds)
+Secrets enthalten (z.B. Passwörter, Secrets)</p>
+<h1 id="ein-einfaches-beispiel">Ein einfaches Beispiel</h1>
+<p><code>git init
+git add .
+git commit -am "First commit"
+git remote add origin git@github.com:your_github_user/myapplication.git
+-- Change/write README.md and .gitignore files
+git pull origin main
+-- Send the entire application to Github
+git push origin main</code></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../why/" class="btn btn-neutral float-left" title="Warum Clean Code?"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../introduction/" class="btn btn-neutral float-left" title="Einführung"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../naming/" class="btn btn-neutral float-right" title="Namen">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -137,7 +189,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../why/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../introduction/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../naming/" style="color: #fcfcfc">Next &raquo;</a></span>
