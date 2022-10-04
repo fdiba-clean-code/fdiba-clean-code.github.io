@@ -21,6 +21,12 @@ Dicht aneinander geschriebener Code ohne jegliche Leerzeilen etc. ist für Mensc
 ## Der Code ist richtig eingerückt
 Richtiges Einrücken vom Code steigert die Lesbarkeit ungemein - und während es in Programmiersprachen wie Java "nur" der Lesbarkeit dient, wirkt sich das Einrücken vom Code in Sprachen wie Python sogar auf die gesamte Funktionalität aus!
 
+## ... aber nicht zu oft eingerückt
+Ist ein Code sehr oft eingerückt, weil es viele IF Bedingungen gibt oÄ, so ist dies nicht nur schwierig zu lesen sondern auch mental sehr schwierig nachzuvollziehen.
+Eine Technik die sich in der Praxis gut bewährt hat um komplexe IF Szenarios zu vereinfachen ist das "return early pattern"
+
+[Return Early Pattern](return-early.md)
+
 ## Der Code beinhaltet keine Magic Numbers
 Magic Numbers beschreiben Zahlen oder Werte im Code, die für einen Leser nicht direkt offensichtlich sind. Magic Numbers sollten mit der Hilfe von Konstanten oder ähnlichen Konstrukten weiter erklärt werden
 ```
