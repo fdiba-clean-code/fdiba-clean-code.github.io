@@ -57,6 +57,24 @@
                   <li class="toctree-l1"><a class="reference internal" href="../naming/">Namen</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Code-Struktur</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#der-code-ist-nicht-zu-gro">Der Code ist nicht zu groß</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#der-code-folgt-den-konventionen">Der Code folgt den Konventionen</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#der-code-enthalt-keinekaum-duplikate">Der Code Enthält keine/kaum Duplikate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#der-code-beinhaltet-whitespaces-fur-die-lesbarkeit">Der Code beinhaltet Whitespaces für die Lesbarkeit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#der-code-ist-richtig-eingeruckt">Der Code ist richtig eingerückt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#aber-nicht-zu-oft-eingeruckt">... aber nicht zu oft eingerückt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#der-code-beinhaltet-keine-magic-numbers">Der Code beinhaltet keine Magic Numbers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#der-code-kapselt-komplexe-logik">Der Code kapselt komplexe Logik</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../debugging/">Debugging</a>
                   </li>
@@ -104,7 +122,70 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="wie-sieht-guter-code-aus">Wie sieht guter Code aus?</h1>
+<h2 id="der-code-ist-nicht-zu-gro">Der Code ist nicht zu groß</h2>
+<p>Funktionen und Klassen sollten möglichst klein gehalten werden, damit sie einfacher zu lesen sind und damit sie nicht zu viel auf einmal tun.</p>
+<h2 id="der-code-folgt-den-konventionen">Der Code folgt den Konventionen</h2>
+<p>Jede Programmiersprache und/oder jede Organisation folgt in der Regel einer Konvention wie Code strukturiert und aufgebaut sein sollte. Code der diesen Konventionen folgt ist einfacher zu lesen und schneller zu verstehen von Entwicklern die diese Konvention schon gewöhnt sind.
+Zudem sind in den Konventionen oft "Tricks" versteckt, welche unter bestimmten Umständen Fehler verhindern können.</p>
+<p>Google beispielsweise veröffentlicht sehr gute Styleguides:</p>
+<ul>
+<li><a href="https://google.github.io/styleguide/javaguide.html">Google Java Styleguide</a></li>
+<li><a href="https://google.github.io/styleguide/pyguide.html">Google Python Styleguide</a></li>
+</ul>
+<h2 id="der-code-enthalt-keinekaum-duplikate">Der Code Enthält keine/kaum Duplikate</h2>
+<p>Duplikate / der gleiche Code mehrfach in der Applikation führt oft zu Problemen, da sich der Entwickler immer daran erinnern muss dass er eine Änderung an einer Stelle auch an allen anderen Stellen nachholen muss. Dies wird bei wachsender Code-Größe zu einem immer schwierigeren Problem</p>
+<h2 id="der-code-beinhaltet-whitespaces-fur-die-lesbarkeit">Der Code beinhaltet Whitespaces für die Lesbarkeit</h2>
+<p>Dicht aneinander geschriebener Code ohne jegliche Leerzeilen etc. ist für Menschen sehr schwer zu lesen. Gelegentliche Leerzeilen und Leerzeichen helfen. Der Code ist hierbei stehts konsistent!</p>
+<h2 id="der-code-ist-richtig-eingeruckt">Der Code ist richtig eingerückt</h2>
+<p>Richtiges Einrücken vom Code steigert die Lesbarkeit ungemein - und während es in Programmiersprachen wie Java "nur" der Lesbarkeit dient, wirkt sich das Einrücken vom Code in Sprachen wie Python sogar auf die gesamte Funktionalität aus!</p>
+<h2 id="aber-nicht-zu-oft-eingeruckt">... aber nicht zu oft eingerückt</h2>
+<p>Ist ein Code sehr oft eingerückt, weil es viele IF Bedingungen gibt oÄ, so ist dies nicht nur schwierig zu lesen sondern auch mental sehr schwierig nachzuvollziehen.
+Eine Technik die sich in der Praxis gut bewährt hat um komplexe IF Szenarios zu vereinfachen ist das "return early pattern"</p>
+<p><a href="../return-early/">Return Early Pattern</a></p>
+<h2 id="der-code-beinhaltet-keine-magic-numbers">Der Code beinhaltet keine Magic Numbers</h2>
+<p>Magic Numbers beschreiben Zahlen oder Werte im Code, die für einen Leser nicht direkt offensichtlich sind. Magic Numbers sollten mit der Hilfe von Konstanten oder ähnlichen Konstrukten weiter erklärt werden</p>
+<pre><code>if(age &gt;= 20) {
+    executeCode();
+}
+</code></pre>
+<p>Besser:</p>
+<pre><code>public static final int LEGAL_DRINKING_AGE_IN_JAPAN = 20;
+
+(...)
+
+if( age &gt;= LEGAL_DRINKING_AGE_IN_JAPAN) {
+    executeCode();
+}
+</code></pre>
+<h2 id="der-code-kapselt-komplexe-logik">Der Code kapselt komplexe Logik</h2>
+<p>Komplexe Logik (z.B. große IF Abfragen) können sehr schwierig zu lesen und zu verstehen sein, wodurch sie auch den Code um sie herum beeinflussen kann und schwieriger zu supporten macht.
+Um dies etwas zu verbessern sollte komplexe Logik via "Zwischen-Variablen" oder am besten gleich in dedizierte Funktionen gekapselt werden.</p>
+<p>Nicht gut:</p>
+<pre><code>if ( employee.age &gt; 55 
+    &amp;&amp; employee.yearsEmplyed &gt; 10
+    &amp;&amp; employee.isRetired ) {
+    // do something 
+}
+</code></pre>
+<p>Besser:</p>
+<pre><code>bool eligibleForPension = employee.age &gt; minRetirementAge
+                       &amp;&amp; employee.yearEmployed &gt; minPensionEmploymentYears
+                       &amp;&amp; emplyee.isRetired ; 
+</code></pre>
+<p>Noch besser: </p>
+<pre><code>private boolean isEligbleForPension(Employee employee) {
+    return employee.age &gt; minRetirementAge
+        &amp;&amp; employee.yearEmployed &gt; minPensionEmploymentYears
+        &amp;&amp; emplyee.isRetired;
+} 
+
+(...)
+
+if( isEligbleForPension(employee) ) {
+    // do something 
+}
+</code></pre>
               
             </div>
           </div><footer>

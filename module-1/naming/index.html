@@ -55,6 +55,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Namen</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../structure/">Code-Struktur</a>
                   </li>
@@ -104,7 +106,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="warum-namen-wichtig-sind">Warum Namen wichtig sind</h1>
+<p>Das Auswählen von Namen für Funktionen, Klassen und Variablen wirkt auf den ersten Blick unwichtig, ist in der Praxis jedoch eines der wichtigsten Momente im Entwicklungsprozess.</p>
+<h1 id="he-who-shall-be-named">He who shall be named</h1>
+<p>Indem wir Funktionen, Klassen und Variablen ihre Namen geben, erreichen wir zwei wichtige Dinge:</p>
+<ul>
+<li>Wir definieren ihre Aufgabe und wir begrenzen ihren Scope</li>
+<li>Wir geben dem Leser vom Code Informationen über das was er gerade liest</li>
+</ul>
+<p>Beim Vergeben von Namen müssen wir also darauf achten, dass schon durch die Namen klar wird worum es sich handelt. Als Leitfaden können wir stets darüber nachdenken ob ein Leser unseres Codes die Funktionalität von einem Objekt verstehen würde OHNE sich zusätzliche Kommentare durchlesen zu müssen.
+Folgende Regeln sollten für Namen im "Clean Code" Style erfüllt sein:</p>
+<ul>
+<li>Der Name ist lesbar &amp; aussprechbar ( dysUntRetrmnt VS daysUntilRetirement )</li>
+<li>Die Intention/Absicht ist klar( int mc VS int monthlyCosts )</li>
+<li>Klassen und Objekte haben ein Nomen oder Nomen-Phrase als Namen (User, ErrorLogger)</li>
+<li>Methoden und Funktionen haben Verben oder Verb-Phrasen als Namen ( retrieveUserFromDatabase() )</li>
+<li>TypInformationen sind nicht notwendig (firstNameString VS firstName)</li>
+</ul>
               
             </div>
           </div><footer>
