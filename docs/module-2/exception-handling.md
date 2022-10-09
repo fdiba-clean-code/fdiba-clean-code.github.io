@@ -37,9 +37,10 @@ Gibt es in der gesamten Funktions-Hierarchie keinen passenden Exeption-Handler, 
 Haben wir Code oder Funktionen aufgerufen die unter Umständen Exceptions werfen, so liegt es an uns diese Exceptions zu "fangen" **wenn wir sie behandeln können**. Ist unser Code aus irgendwelchen Gründen nicht in der Lage die Exception zu behandeln, so sollten wir sie gar nicht erst fangen um einem anderen Modul weiter "oben" in der Hierarchie die Möglichkeit zu geben diese Exception zu behandeln.
 
 In der Java-Welt besteht ein Exception-Handling aus 3 Code-Blöcken die zueinander gehören.
-* Try Block - dies ist der Code Block, in dem wir Exceptions erwarten und bei deren Auftreten wir reagieren wollen
-* Catch-Block - in 0-n Catch-Blöcken "fangen" und behandeln wir möglicherweise auftretende Exceptions für jeweils 1 bestimmten Typ
-* Finally-Block - dieser Block beschreibt Code der definitiv ausgeführt werden soll, egal ob eine Exception aufgetreten ist oder nicht
+
+1. Try: dies ist der Code Block, in dem wir Exceptions erwarten und bei deren Auftreten wir reagieren wollen
+2. Catch: in 0-n Catch-Blöcken "fangen" und behandeln wir möglicherweise auftretende Exceptions für jeweils 1 bestimmten Typ
+3. Finally: dieser Block beschreibt Code der definitiv ausgeführt werden soll, egal ob eine Exception aufgetreten ist oder nicht
 
 ```
 try {
