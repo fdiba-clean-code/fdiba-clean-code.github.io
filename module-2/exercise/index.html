@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Aufgaben";
-        var mkdocs_page_input_path = "module-1/exercise.md";
+        var mkdocs_page_input_path = "module-2/exercise.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -49,43 +49,45 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Modul 1</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../introduction/">Einführung</a>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/introduction/">Einführung</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/git/">Git</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../naming/">Namen</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/naming/">Namen</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../structure/">Code-Struktur</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/structure/">Code-Struktur</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../comments/">Kommentare</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/comments/">Kommentare</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../debugging/">Debugging</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/debugging/">Debugging</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Aufgaben</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#aufgabe">Aufgabe</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/exercise/">Aufgaben</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Modul 2</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/automated-formatters/">Automated formatters</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../automated-formatters/">Automated formatters</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/dependency-injection/">Dependency injection</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../dependency-injection/">Dependency injection</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/single-responsibility-principle/">Singe-Responsibility Principle</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../single-responsibility-principle/">Singe-Responsibility Principle</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/exception-handling/">Fehlerbehandlung</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../exception-handling/">Fehlerbehandlung</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/refactoring/">Refactoring</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../refactoring/">Refactoring</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/testability/">Testbarkeit</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../testability/">Testbarkeit</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/if-inversion/">If-Inversion</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../if-inversion/">If-Inversion</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/exercise/">Aufgaben</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Aufgaben</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#aufgabe-1">Aufgabe 1</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#aufgabe-2">Aufgabe 2</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Modul 3</span></p>
@@ -112,7 +114,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Modul 1 &raquo;</li>
+          <li>Modul 2 &raquo;</li>
       <li>Aufgaben</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -122,29 +124,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="aufgabe-zum-modul-1">Aufgabe zum Modul 1</h1>
-<h2 id="aufgabe">Aufgabe</h2>
-<ul>
-<li>Git installieren</li>
-<li>Github Repository erstellen</li>
-<li>Euer Repository von Github clonen</li>
-<li>Erstellt einen neuen Branch in eurem Repository</li>
-<li>Erstellt ein neues Java Projekt in diesem Branch ("Feature Branch")</li>
-<li>Die Applikation sollte folgende Funktionalität erfüllen<ul>
-<li>Es können 1 oder mehrere Zahlen über die Kommandozeile eingegeben werden</li>
-<li>Nachdem 1 oder mehrere Zahlen eingegeben wurden, kann uns die App den Durchschnitt dieser Zahlen nennen</li>
-<li>Falsche Eingaben werden abgefangen und mit einer guten Fehlermeldung abgelehnt</li>
-<li>Der Code ist "clean" entsprechend der Clean Code Definitionen</li>
-</ul>
-</li>
-<li>Erstellt einen Merge Request von eurem Feature Branch in den Main Branch</li>
-</ul>
+                <h1 id="aufgaben">Aufgaben</h1>
+<h2 id="aufgabe-1">Aufgabe 1</h2>
+<p>Eure Aufgabe ist das Umschreiben dieser Funktion anhand der bisher gelernten Konzepte von Clean Code.
+Euer Ziel ist die Verbesserung der Lesbarkeit und Wartbarkeit des Codes, zusammen mit allen weiteren Optimierungen die möglich wären. Was würdet ihr dem Autoren dieser Funktion sagen, was er/sie nächstes Mal besser machen kann?</p>
+<pre><code>public void onChangeSelectedChart(ClickEvent event, int: number) {
+if (event.checked != null) {
+if (event.checked == true) {
+if (typeChart == chartTypes.lineChart) {
+setIsLineChecked(true);
+setIsStackedChartChecked(false);
+rootStore.appState.setActiveChartType(chartTypes.lineChart);
+} else {
+setIsStackedChartChecked(true);
+setIsLineChecked(false);
+rootStore.appState.setActiveChartType(chartTypes.stackedChart);
+}
+} else {
+if (typeChart == chartTypes.lineChart) {
+setIsLineChecked(false);
+} else if (typeChart === chartTypes.stackedChart) {
+setIsStackedChartChecked(false);
+}
+}
+}
+};
+</code></pre>
+<h2 id="aufgabe-2">Aufgabe 2</h2>
+<p>Was würdest du bei diesem Code optimieren? Bitte begründe deine Lösung</p>
+<pre><code>public void createSavegame(String gameState, String filename) {
+  try {
+    BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+    writer.write(str);
+    writer.close();
+
+  } catch (IOException e) {}
+}
+
+public void doOtherStuff() {
+  try {
+    callMyApi();
+  } catch(StackOverflowError e) {
+    // retry logic
+    doOtherStuff();
+  }
+}
+</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../debugging/" class="btn btn-neutral float-left" title="Debugging"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../module-2/automated-formatters/" class="btn btn-neutral float-right" title="Automated formatters">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../if-inversion/" class="btn btn-neutral float-left" title="If-Inversion"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../about/" class="btn btn-neutral float-right" title="Soon...">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -167,10 +198,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../debugging/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../if-inversion/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../module-2/automated-formatters/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../about/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

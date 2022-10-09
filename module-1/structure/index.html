@@ -89,20 +89,27 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../module-2/dependency-injection/">Dependency injection</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/do-one-thing-well/">Do one thing well</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/single-responsibility-principle/">Singe-Responsibility Principle</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/exception-handling/">Exception handling</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/magic-numbers/">Magic numbers</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/exception-handling/">Fehlerbehandlung</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../module-2/refactoring/">Refactoring</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/testability/">Testability</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/testability/">Testbarkeit</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/if-inversion/">If-Inversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/exercise/">Aufgaben</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Modul 3</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../about/">Soon...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modul 4</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-4/introduction/">Eine Exkursion in die Java-Welt</a>
                   </li>
               </ul>
       </div>
@@ -148,8 +155,7 @@ Zudem sind in den Konventionen oft "Tricks" versteckt, welche unter bestimmten U
 <p>Richtiges Einrücken vom Code steigert die Lesbarkeit ungemein - und während es in Programmiersprachen wie Java "nur" der Lesbarkeit dient, wirkt sich das Einrücken vom Code in Sprachen wie Python sogar auf die gesamte Funktionalität aus!</p>
 <h2 id="aber-nicht-zu-oft-eingeruckt">... aber nicht zu oft eingerückt</h2>
 <p>Ist ein Code sehr oft eingerückt, weil es viele IF Bedingungen gibt oÄ, so ist dies nicht nur schwierig zu lesen sondern auch mental sehr schwierig nachzuvollziehen.
-Eine Technik die sich in der Praxis gut bewährt hat um komplexe IF Szenarios zu vereinfachen ist das "return early pattern"</p>
-<p><a href="../return-early/">Return Early Pattern</a></p>
+Eine Technik die sich in der Praxis gut bewährt hat um komplexe IF Szenarios zu vereinfachen ist das "return early pattern" - welches im <a href="/module-2/if-inversion">Modul 2</a> genauer erklärt wird</p>
 <h2 id="der-code-beinhaltet-keine-magic-numbers">Der Code beinhaltet keine Magic Numbers</h2>
 <p>Magic Numbers beschreiben Zahlen oder Werte im Code, die für einen Leser nicht direkt offensichtlich sind. Magic Numbers sollten mit der Hilfe von Konstanten oder ähnlichen Konstrukten weiter erklärt werden</p>
 <pre><code>if(age &gt;= 20) {

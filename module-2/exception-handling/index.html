@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Exception handling - FDIBA - Clean Code</title>
+    <title>Fehlerbehandlung - FDIBA - Clean Code</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Exception handling";
+        var mkdocs_page_name = "Fehlerbehandlung";
         var mkdocs_page_input_path = "module-2/exception-handling.md";
         var mkdocs_page_url = null;
       </script>
@@ -71,20 +71,49 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../dependency-injection/">Dependency injection</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../do-one-thing-well/">Do one thing well</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../single-responsibility-principle/">Singe-Responsibility Principle</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Exception handling</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../magic-numbers/">Magic numbers</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Fehlerbehandlung</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#einleitung">Einleitung</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unterscheidung-der-arten-von-fehlern">Unterscheidung der Arten von Fehlern</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#was-sind-exceptions">Was sind Exceptions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wie-nutze-ich-exceptions">Wie nutze ich Exceptions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#szenario-1-werfen-von-exceptions">Szenario 1 - Werfen von Exceptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#szenario-2-fangen-von-exceptions">Szenario 2 - Fangen von Exceptions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wie-designe-ich-exceptions">Wie designe ich Exceptions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wie-funktioniert-es-in-java">Wie funktioniert es in Java?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wann-sollte-ich-keine-exceptions-nutzen">Wann sollte ich keine Exceptions nutzen?</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../refactoring/">Refactoring</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../testability/">Testability</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../testability/">Testbarkeit</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../if-inversion/">If-Inversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exercise/">Aufgaben</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Modul 3</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../about/">Soon...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modul 4</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-4/introduction/">Eine Exkursion in die Java-Welt</a>
                   </li>
               </ul>
       </div>
@@ -102,7 +131,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
           <li>Modul 2 &raquo;</li>
-      <li>Exception handling</li>
+      <li>Fehlerbehandlung</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -111,13 +140,66 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="fehlerbehandlung">Fehlerbehandlung</h1>
+<h2 id="einleitung">Einleitung</h2>
+<p>Das Auftreten und Behandeln von Fehlern gehört zum Alltag jeder Applikation und zur täglichen Arbeit eines jeden Entwicklers.
+Ob ein Fehler auftritt weil unser Code selbst diesen verursacht hat oder wir von einem externen System oder Modul abhängen und dieses widerum einen Fehlerzustand festgestellt hat ist hierbei nicht wichtig - wichtig ist nur, dass wir als Entwickler auf diesen Umstand reagieren müssen</p>
+<h2 id="unterscheidung-der-arten-von-fehlern">Unterscheidung der Arten von Fehlern</h2>
+<p>Beim Schreiben von Code zur Behandlung von Zuständen die einen Fehler darstellen ist es zuerst am wichtigsten zu identifizieren ob wir selbst mit unserem Code diesen Zustand behandeln/lösen können oder nicht.</p>
+<p>Können wir den Fehler behandeln, lösen oder umgehen - so ist es im Zweifel nur eine weitere Funktion oder ein weiteres Modul welches wir entwickeln müssen um das Problem zu lösen und einen "normalen" Zustand wieder herzustellen.</p>
+<p>Können wir mit unserem Code den Fehler jedoch nicht lösen (etwa, weil er ein Feedback vom Nutzer braucht, unser Code aber ein Java-Backend-System ohne direkten Zugriff zum User ist), so müssen wir auf sogenannte Exceptions zurückgreifen.</p>
+<h2 id="was-sind-exceptions">Was sind Exceptions</h2>
+<p>Exceptions sind als Paradigma in fast allen modernen Programmiersprachen vorhanden und beschreiben in der Regel gleichzeitig eine Veränderung des Kontrollflusses (also der Code der als nächstes ausgeführt wird) als auch ein Objekt mit Meta-Informationen zum aufgetretenen Fehler.
+Exceptions haben sich in der Praxis als besseres Paradigma als "Return Codes" herausgestellt, welche vor allem in früheren Programmiersprachen- und umgebungen sehr verbreitet waren.
+Return Codes haben den Nachteil, dass sie sehr viel Interpretation durch den Empfänger des Return Codes benötigen und meistens sehr wenige dazugehörige Meta Informationen zur Verfügung stellen, welche zur Lösung des Problems womöglich sinnvoll wären.</p>
+<h2 id="wie-nutze-ich-exceptions">Wie nutze ich Exceptions</h2>
+<p>Jede Programmiersprache hat zum Thema Exceptions ihren eigenen Syntax und Konzepte - wobei sich das Grundparadigma kaum unterscheidet.
+Betrachtet werden können immer 2 Szenarien:</p>
+<h3 id="szenario-1-werfen-von-exceptions">Szenario 1 - Werfen von Exceptions</h3>
+<p>Erkennt unser Code einen Fehler den wir selbst nicht behandeln können, so wird das Werfen einer Exception sinnvoll.
+Wir erstellen hierbei ein typisiertes Exception-Objekt welches wir mit Informationen füllen die dem "Empfänger" dieses Objekts ggf. nützlich sind um den Fehler behandeln zu können.
+Es ist hierbei wichtig dass wir sinnvolle Informationen und Exception-Typen wählen, um dem Empfänger unserer Exception die beste Chance zu geben das Problem zu lösen oder zu behandeln.</p>
+<pre><code>if( somethingBadHappened) {
+    throw new MyException(&quot;Dieser String&quot;);
+}
+</code></pre>
+<p>Der Programmfluss wird hierbei beim Werfen der Exception unterbrochen, "unser" Code wird nicht weiter ausgeführt sondern die Exception wandert in der Funktions-Hierarchie weiter nach oben bis es einen korrespondierenden Handler/Catch-Block erreicht.
+Gibt es in der gesamten Funktions-Hierarchie keinen passenden Exeption-Handler, so wird in der Regel die gesamte Applikation beendet.</p>
+<h3 id="szenario-2-fangen-von-exceptions">Szenario 2 - Fangen von Exceptions</h3>
+<p>Haben wir Code oder Funktionen aufgerufen die unter Umständen Exceptions werfen, so liegt es an uns diese Exceptions zu "fangen" <strong>wenn wir sie behandeln können</strong>. Ist unser Code aus irgendwelchen Gründen nicht in der Lage die Exception zu behandeln, so sollten wir sie gar nicht erst fangen um einem anderen Modul weiter "oben" in der Hierarchie die Möglichkeit zu geben diese Exception zu behandeln.</p>
+<p>In der Java-Welt besteht ein Exception-Handling aus 3 Code-Blöcken die zueinander gehören.</p>
+<ol>
+<li>Try: dies ist der Code Block, in dem wir Exceptions erwarten und bei deren Auftreten wir reagieren wollen</li>
+<li>Catch: in 0-n Catch-Blöcken "fangen" und behandeln wir möglicherweise auftretende Exceptions für jeweils 1 bestimmten Typ</li>
+<li>Finally: dieser Block beschreibt Code der definitiv ausgeführt werden soll, egal ob eine Exception aufgetreten ist oder nicht</li>
+</ol>
+<pre><code>try {
+    callMyFunction();
+} catch (MyException e) {
+    displayErrorToUser(e.getMessage());
+    setErrorState(true);
+} finally {
+    System.out.println(&quot;The function has finished&quot;);
+}
+
+</code></pre>
+<h2 id="wie-designe-ich-exceptions">Wie designe ich Exceptions</h2>
+<p>Die meisten Programmiersprachen beinhalten selbst schon eine eigene Hierarchie von Exception-Typen, welche ihrerseits diverse Fehlerszenarien beschreiben. Es ist sinnvoll diese zu nutzen und ggf. um eigene Typen zu erweitern, wobei sich hier oft die Vorteile der Abstraktion zeigen.</p>
+<h2 id="wie-funktioniert-es-in-java">Wie funktioniert es in Java?</h2>
+<p>Java unterscheidet grundsätzlich zwischen Exceptions und Errors, wobei beide Arten (und ihre Unterarten) das Interface "Throwable" implementieren.</p>
+<p>Exceptions in der Java-Welt stellen Fehler und Zustände dar, von denen eigentlich zu erwarten ist dass eine Applikation diese auf irgendeine Weise behandelt und/oder weitergibt.
+Errors auf der anderen Seite stellen Zustände dar über die die Applikation zwar informiert wird aber welche dann in der Regel nicht behandelt werden (können).
+OutOfMemoryError oder StackOverflowError beispielsweise sind 2 Fehlertypen bei denen die Applikation nicht weiter reagieren kann - da ihr Auftreten zur Terminierung der Applikation führt.</p>
+<h2 id="wann-sollte-ich-keine-exceptions-nutzen">Wann sollte ich keine Exceptions nutzen?</h2>
+<p>Exceptions sollten vor allem in den Momenten nicht genutzt werden, wo die Applikation sich eigentlich noch in einem normalen Zustand und Fluss befindet. Dies hat vor allem zwei Gründe:
++ Das Nachverfolgen von einem durch Exceptions kontrollierten Programmfluss ist für einen Entwickler relaltiv schwierig
++ Exceptions sind aus Performanceperspektive relativ "teure" Operationen (mindestens in Java) und könnten in performancekritischen Code zu Verlusten führen.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../do-one-thing-well/" class="btn btn-neutral float-left" title="Do one thing well"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../magic-numbers/" class="btn btn-neutral float-right" title="Magic numbers">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../single-responsibility-principle/" class="btn btn-neutral float-left" title="Singe-Responsibility Principle"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../refactoring/" class="btn btn-neutral float-right" title="Refactoring">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -140,10 +222,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../do-one-thing-well/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../single-responsibility-principle/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../magic-numbers/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../refactoring/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

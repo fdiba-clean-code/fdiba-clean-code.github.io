@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Return early - FDIBA - Clean Code</title>
+    <title>If-Inversion - FDIBA - Clean Code</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Return early";
-        var mkdocs_page_input_path = "module-1/return-early.md";
+        var mkdocs_page_name = "If-Inversion";
+        var mkdocs_page_input_path = "module-2/if-inversion.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -50,41 +50,54 @@
               </ul>
               <p class="caption"><span class="caption-text">Modul 1</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../introduction/">Einführung</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/introduction/">Einführung</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/git/">Git</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../naming/">Namen</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/naming/">Namen</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../structure/">Code-Struktur</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/structure/">Code-Struktur</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../comments/">Kommentare</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/comments/">Kommentare</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../debugging/">Debugging</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/debugging/">Debugging</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../exercise/">Aufgaben</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-1/exercise/">Aufgaben</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Modul 2</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/automated-formatters/">Automated formatters</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../automated-formatters/">Automated formatters</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/dependency-injection/">Dependency injection</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../dependency-injection/">Dependency injection</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/do-one-thing-well/">Do one thing well</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../single-responsibility-principle/">Singe-Responsibility Principle</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/exception-handling/">Exception handling</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../exception-handling/">Fehlerbehandlung</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/magic-numbers/">Magic numbers</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../refactoring/">Refactoring</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/refactoring/">Refactoring</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../testability/">Testbarkeit</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../module-2/testability/">Testability</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">If-Inversion</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#ein-beispiel-zur-veranschaulichung">Ein Beispiel zur Veranschaulichung</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#anwendung-der-if-inversion">Anwendung der If-Inversion</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exercise/">Aufgaben</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Modul 3</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../about/">Soon...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modul 4</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-4/introduction/">Eine Exkursion in die Java-Welt</a>
                   </li>
               </ul>
       </div>
@@ -101,7 +114,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Return early</li>
+          <li>Modul 2 &raquo;</li>
+      <li>If-Inversion</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -110,7 +124,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Komplexer Code</p>
+                <h1 id="if-inversion">If-Inversion</h1>
+<p>Eine in der Praxis oft angewandte Strategie für die bessere Lesbarkeit von Code ist die sogenannte "If-Inversion", welche unter anderem auch als "early return Stragie", "guard clauses" und diverse andere Namen bekannt ist.</p>
+<p>Unabhängig vom Namen und den teilweise auch minimal anderen Zielen dieser verschiedenen Stragien verhalten sich diese jedoch alle im Grunde gleich:</p>
+<h2 id="ein-beispiel-zur-veranschaulichung">Ein Beispiel zur Veranschaulichung</h2>
+<p>Betrachten wir den folgenden recht komplexen Code:</p>
 <pre><code>public String returnStuff(SomeObject argument1, SomeObject argument2) {
     if (argument1.isValid()) {
         if (argument2.isValid()) {
@@ -135,7 +153,10 @@
     }
 }
 </code></pre>
-<p>Vereinfachter Code mit Return Early Pattern</p>
+<h2 id="anwendung-der-if-inversion">Anwendung der If-Inversion</h2>
+<p>Drehen wir nun aber den Code um und behandeln die Fälle bei denen wir "nichts machen können" zuerst, so sehen wir wie ganz automatisch die Menge der geschachtelten Ausdrücke immer weiter abnimmt.</p>
+<p>Wir können nach und nach verschiedene Fehler-Szenarien abfangen und hierzu passende Lösungen (Return-Werte, Exceptions oder sonstige Behandlungen) ausführen, ohne auf den restlichen Code Auswirkungen zu haben.</p>
+<p>Der Code wird hierdurch deutlich klarer und von einem Leser deutlich einfacher zu lesen.</p>
 <pre><code>public String returnStuff(SomeObject argument1, SomeObject argument2){
       if (!argument1.isValid()) {
             throw new Exception();
@@ -164,6 +185,10 @@
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../testability/" class="btn btn-neutral float-left" title="Testbarkeit"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../exercise/" class="btn btn-neutral float-right" title="Aufgaben">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -185,6 +210,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../testability/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../exercise/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

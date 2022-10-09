@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Magic numbers - FDIBA - Clean Code</title>
+    <title>Lösungen zu den Aufgaben von Modul 2 - FDIBA - Clean Code</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Magic numbers";
-        var mkdocs_page_input_path = "module-2/magic-numbers.md";
+        var mkdocs_page_name = "L\u00f6sungen zu den Aufgaben von Modul 2";
+        var mkdocs_page_input_path = "module-2/solutions.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -66,25 +66,32 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Modul 2</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../automated-formatters/">Automated formatters</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../dependency-injection/">Dependency injection</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../do-one-thing-well/">Do one thing well</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../single-responsibility-principle/">Singe-Responsibility Principle</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../exception-handling/">Exception handling</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Magic numbers</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../exception-handling/">Fehlerbehandlung</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../refactoring/">Refactoring</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../testability/">Testability</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../testability/">Testbarkeit</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../if-inversion/">If-Inversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exercise/">Aufgaben</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Modul 3</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../about/">Soon...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modul 4</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-4/introduction/">Eine Exkursion in die Java-Welt</a>
                   </li>
               </ul>
       </div>
@@ -101,8 +108,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Modul 2 &raquo;</li>
-      <li>Magic numbers</li>
+      <li>Lösungen zu den Aufgaben von Modul 2</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -111,14 +117,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="losungen-zu-den-aufgaben-von-modul-2">Lösungen zu den Aufgaben von Modul 2</h1>
+<h2 id="1-if-inversion">(1) IF Inversion</h2>
+<pre><code>if (null == event || null == event.checked) return;
+
+const isActive: boolean = event.checked;
+const isLineChart: boolean = typeChart === chartTypes.lineChart;
+const activeChartType: string = isLineChart ? chartTypes.lineChart : chartTypes.stackedChart;
+
+if (isActive) {
+   setIsLineChecked(isLineChart);
+   setIsStackedChartChecked(!isLineChart);
+   rootStore.appState.setActiveChartType(activeChartType);
+} else {
+   isLineChart ? setIsLineChecked(isActive) : setIsStackedChartChecked(isActive);
+}
+
+</code></pre>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../exception-handling/" class="btn btn-neutral float-left" title="Exception handling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../refactoring/" class="btn btn-neutral float-right" title="Refactoring">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -140,10 +158,6 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../exception-handling/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../refactoring/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
