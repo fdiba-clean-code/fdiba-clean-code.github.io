@@ -16,7 +16,6 @@ nav:
           - module-2/dependency-injection.md
           - module-2/do-one-thing-well.md
           - module-2/exception-handling.md
-          - module-2/magic-numbers.md
           - module-2/refactoring.md
           - module-2/testability.md
     - "Modul 3":
