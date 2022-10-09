@@ -18,7 +18,7 @@ Duplikate / der gleiche Code mehrfach in der Applikation führt oft zu Problemen
 ## Der Code beinhaltet Whitespaces für die Lesbarkeit
 Dicht aneinander geschriebener Code ohne jegliche Leerzeilen etc. ist für Menschen sehr schwer zu lesen. Gelegentliche Leerzeilen und Leerzeichen helfen. Der Code ist hierbei stehts konsistent!
 
-## Der Code ist richtig eingerückt
+## Der Code ist richtig eingerückt (Indentation)
 Richtiges Einrücken vom Code steigert die Lesbarkeit ungemein - und während es in Programmiersprachen wie Java "nur" der Lesbarkeit dient, wirkt sich das Einrücken vom Code in Sprachen wie Python sogar auf die gesamte Funktionalität aus!
 
 ## ... aber nicht zu oft eingerückt
