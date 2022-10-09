@@ -18,6 +18,9 @@ nav:
           - module-2/exception-handling.md
           - module-2/refactoring.md
           - module-2/testability.md
+          - module-2/if-inversion.md
           - "Aufgaben": "module-2/exercise.md"
     - "Modul 3":
           - "Soon...": "about.md"
+    - "Modul 4":
+          - module-4/introduction.md

@@ -23,9 +23,7 @@ Richtiges Einrücken vom Code steigert die Lesbarkeit ungemein - und während es
 
 ## ... aber nicht zu oft eingerückt
 Ist ein Code sehr oft eingerückt, weil es viele IF Bedingungen gibt oÄ, so ist dies nicht nur schwierig zu lesen sondern auch mental sehr schwierig nachzuvollziehen.
-Eine Technik die sich in der Praxis gut bewährt hat um komplexe IF Szenarios zu vereinfachen ist das "return early pattern"
-
-[Return Early Pattern](return-early.md)
+Eine Technik die sich in der Praxis gut bewährt hat um komplexe IF Szenarios zu vereinfachen ist das "return early pattern" - welches im [Modul 2](/module-2/if-inversion) genauer erklärt wird
 
 ## Der Code beinhaltet keine Magic Numbers
 Magic Numbers beschreiben Zahlen oder Werte im Code, die für einen Leser nicht direkt offensichtlich sind. Magic Numbers sollten mit der Hilfe von Konstanten oder ähnlichen Konstrukten weiter erklärt werden
