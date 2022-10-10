@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Refactoring by Abstraction - FDIBA - Clean Code</title>
+    <title>Refactoring - FDIBA - Clean Code</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Refactoring by Abstraction";
+        var mkdocs_page_name = "Refactoring";
         var mkdocs_page_input_path = "module-2/refactoring.md";
         var mkdocs_page_url = null;
       </script>
@@ -75,13 +75,15 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../exception-handling/">Fehlerbehandlung</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Refactoring by Abstraction</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Refactoring</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#high-coupling">High Coupling</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#refactoring-by-abstraction">Refactoring by Abstraction</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../testability/">Testbarkeit</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../dependency-injection/">Dependency Injection</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../exercise/">Aufgaben</a>
                   </li>
@@ -111,7 +113,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
           <li>Modul 2 &raquo;</li>
-      <li>Refactoring by Abstraction</li>
+      <li>Refactoring</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -120,7 +122,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="refactoring-by-abstraction">Refactoring by Abstraction</h1>
+                <h1 id="refactoring">Refactoring</h1>
+<p>In vorherigen Kapiteln haben wir diverse Strategien betrachtet wie wir beim Schreiben von Code eine gute Qualität erreicht können. Was aber wenn wir oder ein anderer Entwickler bereits suboptimalen Code geschrieben und in unsere Applikation integriert haben? </p>
+<p>Es gibt vorrangig 2 Gründe warum wir über die Zeit existierenden Code verändern oder verbessern müssen:</p>
+<ol>
+<li>Es haben sich Anforderungen oder Rahmenbedingungen geändert</li>
+<li>Existierender Code erfüllt nicht unsere Qualtätsanforderungen</li>
+</ol>
+<p>Das Ändern unseres Codes ohne Veränderung der eigentlichen Funktionalität nennt man <strong>Refactoring</strong> - und es hat grundsätzlich immer zum Ziel eine dieser beiden problematischen Situationen zu verbessern.</p>
+<h2 id="high-coupling">High Coupling</h2>
+<p>Wir als Entwickler stehen oft vor dem Dilemma, dass der Code den wir refactoren wollen so tief in unsere restliche Applikation verworren ist, dass er nur sehr schwierig verändert oder erweitert werden kann. Möglicherweise etwa gibt es sehr viele andere Module die konkret gegen diese eine Implementation unseres Code entwickelt haben, wodurch jede Änderung plötzlich ungewollte Seiteneffekte mit sich bringt.
+Diese Situation ist "High Coupling", de facto das Gegenteil dessen was wir in "clean code" eigentlich erreichen wollen.</p>
+<h2 id="refactoring-by-abstraction">Refactoring by Abstraction</h2>
+<p>Während das Refactoring bei vergleichsweise kleinen Modulen und Applikationen noch relativ einfach ausgeführt werden kann, so kann dies bei sehr großen und komplexen Applikationen eine große Hürde darstellen.
+Eine Strategie die sich zur Lösung dieses Problems bewährt hat ist das Refactoring by Abstraction. Ähnlich wie beim Dependency Inversion gehes auch hier darum eine weitere Abstraktionsebene zwischen 2 Code-Modulen einzuführen.</p>
+<p>Mit Hilfe dieser Abstraktions-Ebene können auf beiden Seiten der Abstraktion nach und nach kleinere oder größere Änderungen vorgenommen werden, ohne dass dies negative Auswirkungen auf die jeweils andere Seite haben muss.</p>
+<p><img alt="refactor-by-abstraction.png" src="/img/refactor-by-abstraction.png" /></p>
               
             </div>
           </div><footer>
