@@ -12,14 +12,13 @@ nav:
           - "Debugging": "module-1/debugging.md"
           - "Aufgaben": "module-1/exercise.md"
     - "Modul 2":
-          - module-2/automated-formatters.md
-          - module-2/dependency-injection.md
           - module-2/single-responsibility-principle.md
+          - module-2/if-inversion.md
+          - module-2/automated-formatters.md
           - module-2/exception-handling.md
           - module-2/refactoring.md
           - module-2/testability.md
-          - module-2/if-inversion.md
-          - "Aufgaben": "module-2/exercise.md"
+          - module-2/exercise.md
     - "Modul 3":
           - "Soon...": "about.md"
     - "Modul 4":
