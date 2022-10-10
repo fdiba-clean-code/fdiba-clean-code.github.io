@@ -1,4 +1,4 @@
-# Singe-Responsibility Principle
+# Single-Responsibility Principle
 Code-Module die zu viele Dinge auf einmal tut wird über kurz oder lang sehr schwierig zu warten und zu lesen.
 
 In der Praxis hat sich daher das "Single-Responsibility Principle" (SRP) etabliert. Dieses wurde von Robert C. Martin in der Form seines Mantras "Eine Klasse sollte nur einen Grund sich zu ändern haben" (A class should have only one reason to change).
