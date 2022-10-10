@@ -67,21 +67,33 @@
               </ul>
               <p class="caption"><span class="caption-text">Modul 2</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../automated-formatters/">Automated formatters</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../dependency-injection/">Dependency injection</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../single-responsibility-principle/">Single-Responsibility Principle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../if-inversion/">If-Inversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../automated-formatters/">Automatisierte Formatierung</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../exception-handling/">Fehlerbehandlung</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../refactoring/">Refactoring</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../refactoring/">Refactoring by Abstraction</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Testbarkeit</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#code-aufteilung-entsprechend-seines-zwecks">Code-Aufteilung entsprechend seines Zwecks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dependency-inversion">Dependency Inversion</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pure-functions">Pure Functions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#beispiel-einer-pure-function">Beispiel einer pure Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beispiel-von-non-pure-funktionen">Beispiel von non-pure Funktionen</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../if-inversion/">If-Inversion</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../dependency-injection/">Dependency Injection</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../exercise/">Aufgaben</a>
                   </li>
@@ -121,12 +133,86 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="testbarkeit">Testbarkeit</h1>
+<p>Eine wichtige Eigenschaft von "Clean Code" ist, dass dieser testbar ist.
+Ein Code ist dann gut testbar wenn mit relativ geringem Aufwand Unit- und andere Formen von automatisierten Tests geschrieben werden können. Diese Tests widerum sollen verlässliche Aussagen darüber treffen können ob ein Code jetzt und in der Zukunft immer noch korrekt arbeitet und sein Verhalten nicht gravierend verändert hat.</p>
+<p>Mit Hilfe solcher automatisierten Tests sollen vor allem sogenannte Regressions-Fehler gefunden werden. Regressions-Fehler sind Fehler die entstehen wenn eine Änderung an einer Stelle im Code ungewollte&amp;unerwartete Fehler an einer anderen Stelle hervorruft.</p>
+<p>Die folgenden Kriterien haben Auswirkungen auf die Testbarkeit eines Code-Moduls:</p>
+<h2 id="code-aufteilung-entsprechend-seines-zwecks">Code-Aufteilung entsprechend seines Zwecks</h2>
+<p>Um eine höhere <a href="module-2/single-responsibility-principle">Cohesion</a> innerhalb des eigenen Codes zu erreichen ist es oft sinnvoll diesen entlang von Aufgabenbereichen zu trennen und aufzuteilen.
+Besonders sinnvoll ist dies beispielsweise bei der Trennung zwischen Code zur Steuerung der grafischen Oberfläche und Code zur Ausführung von Geschäftsprozessen oder anderen Arten von Berechnungen.</p>
+<p>Ist der Code entsprechend getrennt, so ist es deutlich einfacher automatiserte Tests (mindestens für Teile der Applikation) zu schreiben, da die einzelnen Module automatisch jeweils weniger Funktionalitäten und Verantwortlichkeiten haben.</p>
+<h2 id="dependency-inversion">Dependency Inversion</h2>
+<p>Das Prinzip der Dependency Inversion ist eine Strategie um eine "loose Coupling" von Modulen im Code zu erreichen.</p>
+<p>Ausgangslage ist hierbei meistens eine harte Abhängigkeit von 2 Klassen, bei denen mindestes eine Klasse ohne die andere nicht funktionieren kann und daher auch nicht unabhängig getestet werden kann:
+<img alt="before-dependency-inversion.svg" src="/img/before-dependency-inversion.svg" /></p>
+<p>Wendet man nun das Konzept der Dependency Inversion an, so wird es notwendig eine zusätzliche Abstraktios-Ebene einzuführen, meistens in Form eines Interface oder Abstrakter Klasse. Während die eine Klasse nun das Interface implementiert und dementsprechend über die Methoden des Interface aufgerufen werden kann, so "kennt" die aufrufende Klasse nun ebenfalls nur noch das Interface und ruft die Methoden von diesem auf. Welche konkrete Implementation sich dahinter verbirgt ist nicht mehr bekannt oder relevant.
+<img alt="after-dependency-inversion.svg" src="/img/after-dependency-inversion.svg" /></p>
+<p>Durch die zusätzliche Abstraktions-Ebene können nun in einem Unit Test sehr einfach "Test-Implementationen" unseres Interfaces erstellt und für die Tests genutzt werden.</p>
+<h2 id="pure-functions">Pure Functions</h2>
+<p>Eine Funktion oder ein Modul ist dann "pure", wenn sie/er bei gleichen Parametern immer die gleichen Ergebnisse liefert und keine Auswirkungen oder Abhängigkeiten auf "externe" Module hat.</p>
+<h3 id="beispiel-einer-pure-function">Beispiel einer pure Function</h3>
+<p>Diese Funktion ist pure, da sie keinerlei Kontakt "nach außen" hat mit Ausnahme von den 2 Parametern.
+Diese Funktion ist somit sehr einfach testbar, da wir keine komplexen Voraussetzungen erfüllen müssen um sie auszuführen.</p>
+<pre><code>public int sum(int numberA, int numberB) {
+    return numberA + numberB;
+}
+</code></pre>
+<h3 id="beispiel-von-non-pure-funktionen">Beispiel von non-pure Funktionen</h3>
+<p>Diese beiden Funktion sind nicht "pure", da sie sie neben ihrer Parameter auch noch externe Aufrufe bzw Veränderungen durchführt.</p>
+<pre><code>// Um diese Funktion richtig zu testen brauchen wir eine reale oder simulierte &quot;Datenbank&quot;, 
+// welche uns den gewünschten Wert zurückliefert
+public String generateMessageOfTheDay(String name) {
+    String prefix = &quot;Hello &quot; + name + &quot; this is your message of the day! \n&quot;;
+    String messageOfTheDay = database.getMessageOfTheDayTemplate();
+
+    return prefix + messageOfTheDay;
+}
+</code></pre>
+<pre><code>// Um diese Funktion richtig zu testen brauchen wir eine reale oder simulierte &quot;Datenbank&quot;, 
+// welche wir nach Ausführung überprüfen können ob das neue Datum gesetzt wurde.
+public void updateDatabase() {
+    Date now = new Date();
+    database.setTimestampOfLastUpdate( now );
+}
+</code></pre>
+<p>Für einen besser testbaren Code ist es oft sinnvoll seine Funktionen oder Module in pure und unpure Teile aufzuteilen - hierdurch wird zumindest ein Teil der Applikation sehr einfach testbar.
+Um etwa das Message-Of-The-Day-Beispiel aufzuteilen könnten die Funktionalität in 2 Funktionen aufgeteilt werden:</p>
+<pre><code>// Wir haben die non-pure Funktionalitäten in diese Funktion verlagert
+public void printMessageOfTheDay() {
+    String name = &quot;Skippy the Magnificent&quot;;
+    String messageOfTheDayTemplate = database.getMessageOfTheDayTemplate();
+
+    String messageOfTheday = generateMessageOfTheDay(messageOfTheDayTemplate, name);
+
+    System.out.println(messageOfTheDay);
+}
+
+// Diese Funktion ist pure
+public String generateMessageOfTheDay(String messageOfTheDayTemplate, String name) {
+    String prefix = &quot;Hello &quot; + name + &quot; this is your message of the day: &quot;;
+    return prefix + messageOfTheDayTemplate;
+}
+
+
+@Test
+public void testMessageOfThDayGenerator() {
+    String name = &quot;Filthy Monkey&quot;;
+    String messageOfTheDay = &quot;Test 123&quot;;
+
+    String expected = &quot;Hello Filthy Monkey this is your message of the day: Test 123&quot;;
+
+    String actual = generateMessageOfTheDay(messageOfTheDay, name);
+
+    AssertEquals(expected, actual);
+}
+
+</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../refactoring/" class="btn btn-neutral float-left" title="Refactoring"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../if-inversion/" class="btn btn-neutral float-right" title="If-Inversion">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../refactoring/" class="btn btn-neutral float-left" title="Refactoring by Abstraction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dependency-injection/" class="btn btn-neutral float-right" title="Dependency Injection">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -152,7 +238,7 @@
       <span><a href="../refactoring/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../if-inversion/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../dependency-injection/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

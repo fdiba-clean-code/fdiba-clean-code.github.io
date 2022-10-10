@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Automated formatters - FDIBA - Clean Code</title>
+    <title>Automatisierte Formatierung - FDIBA - Clean Code</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Automated formatters";
+        var mkdocs_page_name = "Automatisierte Formatierung";
         var mkdocs_page_input_path = "module-2/automated-formatters.md";
         var mkdocs_page_url = null;
       </script>
@@ -67,19 +67,27 @@
               </ul>
               <p class="caption"><span class="caption-text">Modul 2</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Automated formatters</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../dependency-injection/">Dependency injection</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../single-responsibility-principle/">Single-Responsibility Principle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../if-inversion/">If-Inversion</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Automatisierte Formatierung</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#regelwerke-in-der-entwicklungsumgebung">Regelwerke in der Entwicklungsumgebung</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#formatter-tools">Formatter-Tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#git-hooks">Git Hooks</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../exception-handling/">Fehlerbehandlung</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../refactoring/">Refactoring</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../refactoring/">Refactoring by Abstraction</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../testability/">Testbarkeit</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../if-inversion/">If-Inversion</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../dependency-injection/">Dependency Injection</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../exercise/">Aufgaben</a>
                   </li>
@@ -109,7 +117,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
           <li>Modul 2 &raquo;</li>
-      <li>Automated formatters</li>
+      <li>Automatisierte Formatierung</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -118,13 +126,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Prettier, Husky, ...</p>
+                <h1 id="automatisierte-formatierung">Automatisierte Formatierung</h1>
+<p>Da die Formatierungsregeln die Code-Ökosysteme oder Organisationen oft sehr komplex und arbeitsaufwändig werden können, werden in der Praxis oft verschiedene Möglichkeiten zur Automatisierung und automatischer Kontrolle genutzt.</p>
+<p>Hier folgen nun einige Möglichkeiten Formatierungsregeln automatisch anzuwenden und zu prüfen:</p>
+<h2 id="regelwerke-in-der-entwicklungsumgebung">Regelwerke in der Entwicklungsumgebung</h2>
+<p>Jede moderne Entwicklungsumgebung wie Visual Studio Code oder IntelliJ bringt eigene (konfigurierbare) Formatierungsregeln für verschiedene Programmiersprachen mit.
+Diese Formatierungsregeln können entweder bei Verstoss als Warnung ausgegeben werden oder direkt beim Speichern einer Datei automatisch angewendet werden.
+Diese in der Entwicklungsumgebung zu nutzen hat für einen Entwickler den Vorteil, dass sie sehr einfach und komfortabel zu benutzen ist - hat jedoch den Nachteil, dass verschiedene Entwicklungsumgebungen (die durchaus gleichzeitig im selben Team benutzt werden können) unterschiedliche Regeln haben können.
+Diese müssen dann entweder aneinaner angepasst werden oder das Team muss mit einer gewissen Abweichung in der Formatierung leben.</p>
+<h2 id="formatter-tools">Formatter-Tools</h2>
+<p>Um unabhängiger von einzelnen Entwicklungsumgebungen zu sein gibt es auch "unabhägige" Tools wie z.B. "Prettier", welche entweder als IDE-Plugin oder via Kommandozeile aufgerufen werden können und dann ihrerseits automatische Code-Formatierungen anhang von komplexen Regeln anwenden können.</p>
+<p>Diese Tools haben zudem zwei weitere Vorteile:</p>
+<ol>
+<li>Sie sind "opinionated", d.h. sie bringen von Haus aus fixe Regeln mit sich die sich aus Best Practices heraus ergeben haben</li>
+<li>Sie können via Git Hooks oÄ automatisch angewendet werden wodurch sie forciert angewendet werden bevor der Sourcecode das Git Repository erreicht</li>
+</ol>
+<h2 id="git-hooks">Git Hooks</h2>
+<p>Git Hooks sind Trigger die bei bestimmten Aktionen im Git automatisch ausgeführt werden.
+Ein verbreitetes Beispiel hierfür sind "Git Pre-Commit"-Hooks. Hierbei werden in dem Moment wo ein User ein Git Commit ausführt automatisch weiterer Code ausgeführt - wie beispielsweise das Code Formatting Tool "Prettier"</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../module-1/exercise/" class="btn btn-neutral float-left" title="Aufgaben"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../dependency-injection/" class="btn btn-neutral float-right" title="Dependency injection">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../if-inversion/" class="btn btn-neutral float-left" title="If-Inversion"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../exception-handling/" class="btn btn-neutral float-right" title="Fehlerbehandlung">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -147,10 +172,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../module-1/exercise/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../if-inversion/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../dependency-injection/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../exception-handling/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
