@@ -52,3 +52,7 @@ public void doOtherStuff() {
   }
 }
 ```
+
+## Aufgabe 3
+
+Erfüllt die Aufgabe unter [https://github.com/lamchau/refactoring-exercise/tree/master/java](https://github.com/lamchau/refactoring-exercise/tree/master/java)
