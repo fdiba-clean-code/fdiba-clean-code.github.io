@@ -20,6 +20,6 @@ nav:
           - module-2/testability.md
           - module-2/exercise.md
     - "Modul 3":
-          - "Soon...": "about.md"
+          - module-3/testing.md
     - "Modul 4":
           - module-4/introduction.md
