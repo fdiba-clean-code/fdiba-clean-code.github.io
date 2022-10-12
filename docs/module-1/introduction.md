@@ -8,6 +8,12 @@ Die gesamte Disziplin des "Clean Code" basiert hierbar auf dem ebenfalls "Clean 
 
 Hinter Abkürzunge wie SOLID, KISS und DRY verbergen sich wichtige Konzepte die bis heute sehr wichtig sind für jeden Entwickler - und eben diese wollen wir gemeinsam erklären.
 
+Die wichtigsten Ziele des Clean Code sind hierbei, dass wir über einen langen Zeitraum und mit steigender Komplexität sicherstellen können, dass unser Code:
+
+- leicht **lesbar** und **verständlich** ist
+- **korrekt** ist
+- einfach **verändert** werden kann
+
 
 Gemeinsam verfolgen wir das Ziel des Clean Code: Die Steigerung der Code-Qualität welche in der Praxis vorrangig durch empirische Metriken während eines Code Reviews gemessen werden kann:
 
