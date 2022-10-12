@@ -84,7 +84,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Modul 3</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Soon...</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module-3/testing/">Automatisiertes Testen</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Modul 4</span></p>
@@ -119,9 +119,9 @@
 <h2 id="1-if-inversion">(1) IF Inversion</h2>
 <pre><code>if (null == event || null == event.checked) return;
 
-boolean isActive = event.checked;
-boolean isLineChart = typeChart === chartTypes.lineChart;
-boolean activeChartType = isLineChart ? chartTypes.lineChart : chartTypes.stackedChart;
+const isActive: boolean = event.checked;
+const isLineChart: boolean = typeChart === chartTypes.lineChart;
+const activeChartType: string = isLineChart ? chartTypes.lineChart : chartTypes.stackedChart;
 
 if (isActive) {
    setIsLineChecked(isLineChart);
