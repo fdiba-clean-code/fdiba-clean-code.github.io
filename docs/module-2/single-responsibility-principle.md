@@ -33,6 +33,8 @@ public class UserService  {
         };
         Session session = Session.getInstance(props, auth);
         sendEmail(session, toEmail, "User registered", "A user was registered");
+
+        database.registerUser(user);
    }
 
     private void sendEmail(Session session, String toEmail, String subject, String body) {
