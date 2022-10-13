@@ -753,6 +753,8 @@
         };
         Session session = Session.getInstance(props, auth);
         sendEmail(session, toEmail, &quot;User registered&quot;, &quot;A user was registered&quot;);
+
+        database.registerUser(user);
    }
 
     private void sendEmail(Session session, String toEmail, String subject, String body) {
