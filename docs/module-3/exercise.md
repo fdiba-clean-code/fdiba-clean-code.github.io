@@ -15,7 +15,7 @@ Bitte beachtet alles was wir bisher in vergangenen Modulen gelernt haben.
 Als Spieler möchte ich die zwei Fdibamon benennen können, damit diese in der Arena gegeneinander antreten
 
 ### Beschreibung
-Das Spiel soll eine (konstante) Liste an Fdibamons zur Verfügung stellen, welche ein Spieler zum Kampf auswählen kann.
+Das Spiel soll eine (konstante) Liste an Fdibamon zur Verfügung stellen, welche ein Spieler zum Kampf auswählen kann.
 
 Ein Fdibamon hat hierbei die folgenden Eigenschaften
 
@@ -23,9 +23,10 @@ Ein Fdibamon hat hierbei die folgenden Eigenschaften
 - ☑️ Hitpoints (Positive integer)
 - ☑️ Attack Power (Positive integer)
 
-Bei Start eines Spiels muss der User aus der Liste der Fdibamons exakt 2 auswählen, damit diese später in der Arena gegeneinander antreten.
-Das auswählen der Fdibamons kann entweder hardcoded im Code erfolgen oder (besser) via Kommandozeile erfolgen
+Bei Start eines Spiels muss der User aus der Liste der Fdibamon exakt 2 auswählen, damit diese später in der Arena gegeneinander antreten.
+Das auswählen der Fdibamon kann entweder hardcoded im Code erfolgen oder (besser) via Kommandozeile erfolgen
 
+### Akzeptanzkriterien
 - ☑️ Es gibt mindestens 5 Fdibamon zur Auswahl
 - ☑️ Jedes Fdibamon hat einen kreativen Namen
 - ☑️ Der Code ist im Git
@@ -38,7 +39,7 @@ Als Spieler möchte ich sobald einen Kampf starten können damit ich sehen kann,
 
 ### Beschreibung
 Ein Kampf in Fdibamon wird rundenweise ausgeführt. In jeder Runde greifen beide Fdibamon das jeweils andere Fdibamon an. 
-Der Kampf hierbei wird simuliert indem die Hitpoints des verteidigenden Fdibamons verringert werden auf Basis der Attack Power des angreifenden Fdibamons.
+Der Kampf hierbei wird simuliert indem die Hitpoints des verteidigenden Fdibamon verringert werden auf Basis der Attack Power des angreifenden Fdibamon.
 Beide Fdibamon sind hierbei in jeder Runde sowohl Angreifer als auch Verteidiger!
 
 Hat ein Fdibamon keine Hitpoints mehr (0), so hat es den Kampf verloren und das Spiel ist beendet.
@@ -69,7 +70,7 @@ Der Dateiname soll sich hierbei aus den Namen der beiden Fdibamon sowohl dem akt
 ## Story 4 - Spezialkräfte
 
 ### Motivation
-Als Spieler möchte ich, dass meine Fdibamons Spezialkräfte einsetzen können damit die Kämpfe noch spannender werden.
+Als Spieler möchte ich, dass meine Fdibamon Spezialkräfte einsetzen können damit die Kämpfe noch spannender werden.
 
 ### Beschreibung
 Die Spezialfähigkeit eines Fdibamo wird automatisch alle 5 Runden angewendet **anstatt der normalen Angriffe**.
@@ -80,6 +81,7 @@ Es gibt hierbei 2 Arten von Spezialfähigkeiten:
 
 Alle anderen Regeln des Spiels bleiben bestehen.
 
+### Akzeptanzkriterien
 - ☑️ A1: Jedes Fdibamon hat eine der beiden Spezialfähigkeiten
 - ☑️ A2: Der Kampfreport sagt, wie oft jedes Fdibamon eine Spezialfähigkeit angewendet hat
 - ☑️ A3: Ich werde während einer Runde darüber informiert wenn eine Spezialfähigkeit angewendet wurde
@@ -111,6 +113,6 @@ Effective Evasion Chance = Random(0..50) => 32
 
 48 > 32    der Angriff war erfolgreich
 
-
+### Akzeptanzkriterien
 - ☑️ A1: Jedes Fdibamon hat eine Hit- und Evasion Chance
 - ☑️ A2: Jede Runde werde ich informiert wie die effekiven Hit- und Evasion Chancen sind
