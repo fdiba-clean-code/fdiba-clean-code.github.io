@@ -559,6 +559,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    Integration Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#e2e-tests" class="md-nav__link">
     E2E Tests
   </a>
@@ -566,8 +573,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#integration-tests" class="md-nav__link">
-    Integration Tests
+  <a href="#wie-und-wieviel-sollte-man-testen" class="md-nav__link">
+    Wie und wieviel sollte man testen?
   </a>
   
 </li>
@@ -581,6 +588,48 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reviews/" class="md-nav__link">
+        Code Reviews
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pair-programming/" class="md-nav__link">
+        Pair Programming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercise/" class="md-nav__link">
+        Aufgaben
+      </a>
     </li>
   
 
@@ -689,6 +738,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    Integration Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#e2e-tests" class="md-nav__link">
     E2E Tests
   </a>
@@ -696,8 +752,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#integration-tests" class="md-nav__link">
-    Integration Tests
+  <a href="#wie-und-wieviel-sollte-man-testen" class="md-nav__link">
+    Wie und wieviel sollte man testen?
   </a>
   
 </li>
@@ -734,15 +790,44 @@
 <p>Hierbei kommen verschiedene Arten von Tests zum Einsatz, die sich alle in ihrer Perspektive auf die Applikation aber auch auf andere Arten und Weisen unterscheiden.</p>
 <p><img alt="test-pyramid.png" src="/img/test-pyramid.png" /></p>
 <h3 id="unit-tests">Unit Tests</h3>
-<p>Unit tests</p>
+<p>Als Unit Tests bezeichnet man Tests die nur kleine Einheiten von Code auf einmal testen, meistens nur eine einzelne Funktion. Unit Tests werden ausschließlich von Entwicklern geschrieben und unterstützen hierbei sowohl beim Regression-Testing als auch während der Entwicklung selbst.
+Da Unit Tests aber Funktionen in Isolation testen - und oft sehr viel gemocked (simuliert) wird um sie ausführen zu können - haben sie gewisse Limitationen.
+Unit Tests können gute Aussagen darüber treffen ob eine Funktion selbst funktioniert, sie können aber kaum eine Aussage darüber treffen ob eine Funktion noch kompatibel zum restlichen System ist.</p>
+<ul>
+<li>✅ Sehr einfach und schnell zu erstellen</li>
+<li>✅ Können sehr schnell ausgeführt werden, geben also schnelles Feedback</li>
+<li>✅ Tests geben sehr verlässliches Feedback</li>
+<li>✅ Fehler die hier aufkommen können sehr einfach identifizier werden</li>
+<li>❌ Unit Tests testen Funktionen nur auf kleinster Ebene</li>
+<li>❌ Unit Tests können keine Aussage darüber treffen ob Module zusammen funktionieren</li>
+</ul>
+<h3 id="integration-tests">Integration Tests</h3>
+<p>Integration Tests gehen einen Schritt weiter als Unit Tests. Mit Hilfe von Integration Tests prüfen wir ob unsere Code-Module nicht nur für sich alleine sondern auch gemeinsam funkionieren.
+Beim Integration Testing werden hierbei also zwei oder mehr Module gestartet, welche dann gemeinsam automatisiert einen Testfall ausführen.
+Integration Tests sind hierbei ein Zwischenschritt zwischen Unit Tests und E2E Tests, weil sie zwar komplexere Prozesse testen, dies aber nicht auf die Art tun wie es ein Mensch in der Regel tun würde. Integration Tests interagieren also in der Regel nicht mit einer grafischen Oberfläche etc. (wobei es hier Ausnahmen gibt).</p>
+<ul>
+<li>✅ Kann komplexe Szenarien testen</li>
+<li>✅ Gibt relativ präzises Feedback über die Fehler-Ursache</li>
+<li>❌ Aufwändig/teuer zu supporten</li>
+<li>❌ Erstellung von Tests kann unter Umständen aufwändig sein</li>
+<li>❌ Manchmal zeitaufwändig in der Ausführung</li>
+</ul>
 <h3 id="e2e-tests">E2E Tests</h3>
 <p>End-to-End Tests (E2E) sind automatisierte Tests die eine Applikation fast wie ein Mensch bedienen. Technisch basieren sie meistens auf Automatisierungs-Werkzeugen die einen (fast) normalen Browser oder ähnliches benutzen um ganz normale Mausklicks, Tastatureingaben etc. durchzuführen.
-Hierbei wird unsere Applikation so installiert und benutzt, wie sie auch im realen Leben benutzt werden würde.</p>
-<p>✅ Kann komplexe Szenarien testen, von Anfang bis Ende
-✅ Bedient die Applikation wie ein echter Mensch
-❌ Relativ aufwändig/teuer zu supporten
-❌ Tests werden über die Zeit "flaky" (sogar kleine Änderung in z.B. einem Text können zu Problemen führen)</p>
-<h3 id="integration-tests">Integration Tests</h3>
+Hierbei wird unsere Applikation so installiert und benutzt, wie sie auch im realen Leben benutzt werden würde.
+E2E Tests werden in manchen Unternehmen von den Entwicklern selbst geschrieben, in anderen Unternehmen aber</p>
+<ul>
+<li>✅ Kann komplexe Szenarien testen, von Anfang bis Ende</li>
+<li>✅ Bedient die Applikation wie ein echter Mensch</li>
+<li>❌ Sehr aufwändig/teuer zu supporten</li>
+<li>❌ Tests werden über die Zeit "flaky" (sogar kleine Änderung in z.B. einem Text können zu Problemen führen)</li>
+<li>❌ Sehr zeitaufwändig in der Ausführung (oft mehrere Stunden), geben also kein direktes Feedback</li>
+<li>❌ Die Ursache für Probleme die hier auftreten können oft nur sehr schwierig gefunden werden</li>
+</ul>
+<h3 id="wie-und-wieviel-sollte-man-testen">Wie und wieviel sollte man testen?</h3>
+<p>Wie viel und was genau getestet werden sollte - und auf welche Art und Weise man dies testet - ist in jeder Organisation und für jede Applikation eine schwierige Frage.
+Jede Applikation hat ihre eigenen Anforderungen an die Menge an Fehlern die noch akzeptabel sind: Während ein kleiner Bug auf einer Hotel-Website wahrscheinlich kein großes Problem ist, sieht dies für die Steuerungs-Software für einen medizinischen Roboter ganz anders aus.</p>
+<p>Absolute Aussagen wie "Unit Tests für mindestens 80% des Codes" sind daher in der Praxis zwar oft verbreitet aber meistens eher ungeeignet. Für jede Applikation sollt konkret entschieden werden was genau getestet werden soll und welche Techniken hierfür zum Einsatz kommen sollten.</p>
 
 
 
@@ -779,13 +864,13 @@ Hierbei wird unsere Applikation so installiert und benutzt, wie sie auch im real
       
       
         
-        <a href="../../module-4/introduction/" class="md-footer__link md-footer__link--next" aria-label="Next: Eine Exkursion in die Java-Welt" rel="next">
+        <a href="../code-reviews/" class="md-footer__link md-footer__link--next" aria-label="Next: Code Reviews" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Eine Exkursion in die Java-Welt
+              Code Reviews
             </div>
           </div>
           <div class="md-footer__button md-icon">
