@@ -1,5 +1,6 @@
 site_name: FDIBA - Clean Code
-theme: readthedocs
+theme:
+  name: material
 nav:
     - Home: "index.md"
     - "Über uns": about.md
@@ -21,5 +22,13 @@ nav:
           - module-2/exercise.md
     - "Modul 3":
           - module-3/testing.md
+          - module-3/code-reviews.md
+          - module-3/pair-programming.md
+          - module-3/exercise.md
     - "Modul 4":
           - module-4/introduction.md
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
