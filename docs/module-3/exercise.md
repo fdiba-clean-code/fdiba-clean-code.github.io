@@ -12,7 +12,7 @@ Bitte beachtet alles was wir bisher in vergangenen Modulen gelernt haben.
 ## Story 1 - Spielstart
 
 ### Motivation
-Als Spieler möchte ich die zwei Fdibamon benennen können, damit diese in der Arena gegeneinander antreten
+Als Spieler möchte ich die zwei Fdibamon auswählen können, damit diese in der Arena gegeneinander antreten
 
 ### Beschreibung
 Das Spiel soll eine (konstante) Liste an Fdibamon zur Verfügung stellen, welche ein Spieler zum Kampf auswählen kann.
