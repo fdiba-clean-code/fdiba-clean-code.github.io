@@ -1,5 +1,10 @@
 # Observer Pattern
 
+Das Observer Pattern beschreibt die Kommunikation zwischen mehreren Objekten bei dem mehrere Objekte (Observer) über Änderungen im Zustand eines anderen Objektes (Observable) informiert werden sollen.
+Eine wichtige Eigenschaft dieses Design Patterns ist, dass die Menge an Observern zum Entwicklungs-Zeitpunkt noch nicht bekannt sein muss - diese können später definiert, hinzugefügt, entfernt etc. werden.
+
+Das Observable-Objekt selbst "kennt" die Observer nicht direkt. Es weiß nur, dass es eine Liste an Observern gibt welche es bei Änderungen informieren soll. Was dann weiter passiert ist dem Observable nicht bekannt.
+
 ```
 
 public class SoccerGame {
@@ -60,3 +65,5 @@ public class BritishTVAnnouncer extends Observer {
 }
 
 ```
+
+[Zurück zu den Behavioral Patterns](/module-6/behavioral-patterns)
