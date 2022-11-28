@@ -27,6 +27,13 @@ nav:
           - module-3/exercise.md
     - "Modul 4":
           - module-4/introduction.md
+    - "Modul 5":
+          - module-5/introduction.md
+    - "Modul 6":
+          - module-6/introduction.md
+          - module-6/creational-patterns.md
+          - module-6/structural-patterns.md
+          - module-6/behavioral-patterns.md
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
