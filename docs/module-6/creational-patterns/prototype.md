@@ -2,7 +2,7 @@
 
 Das Prototype Pattern beschreibt einen Mechanismus zum Kopieren von Objekten ohne deren konkrete Implementation zu kennen (oder ggf. sogar darauf zugreifen zu können).
 
-Das Prototype Pattern kann in Java sehr einfach angewendet werden indem eine abstrakte Klasse das "Cloneable" Interface extended und alle Subklassen die dazugehörige copy() Methode implementieren.
+Das Prototype Pattern kann in Java sehr einfach angewendet werden indem eine abstrakte Klasse das "Cloneable" Interface implementieren und alle Subklassen die dazugehörige clone() Methode implementieren.
 
 ```
 public class Animal implements Cloneable {
