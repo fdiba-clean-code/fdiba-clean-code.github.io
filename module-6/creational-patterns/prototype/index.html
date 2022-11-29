@@ -737,6 +737,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../homework/" class="md-nav__link">
+        Übungsaufgabe
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -778,7 +792,7 @@
 
 <h1 id="prototype-pattern">Prototype Pattern</h1>
 <p>Das Prototype Pattern beschreibt einen Mechanismus zum Kopieren von Objekten ohne deren konkrete Implementation zu kennen (oder ggf. sogar darauf zugreifen zu können).</p>
-<p>Das Prototype Pattern kann in Java sehr einfach angewendet werden indem eine abstrakte Klasse das "Cloneable" Interface extended und alle Subklassen die dazugehörige copy() Methode implementieren.</p>
+<p>Das Prototype Pattern kann in Java sehr einfach angewendet werden indem eine abstrakte Klasse das "Cloneable" Interface implementieren und alle Subklassen die dazugehörige clone() Methode implementieren.</p>
 <pre><code>public class Animal implements Cloneable {
     // ...
 
