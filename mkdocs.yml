@@ -27,6 +27,7 @@ nav:
           - module-3/exercise.md
     - "Modul 4":
           - module-4/introduction.md
+          - module-4/github-actions.md
     - "Modul 5":
           - module-5/introduction.md
     - "Modul 6":
