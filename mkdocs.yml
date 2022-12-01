@@ -34,6 +34,7 @@ nav:
           - module-6/creational-patterns.md
           - module-6/structural-patterns.md
           - module-6/behavioral-patterns.md
+          - module-6/homework.md
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
