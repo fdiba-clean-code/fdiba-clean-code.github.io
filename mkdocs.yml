@@ -28,6 +28,7 @@ nav:
     - "Modul 4":
           - module-4/introduction.md
           - module-4/github-actions.md
+          - module-4/statische-codeanalyse.md
     - "Modul 5":
           - module-5/introduction.md
     - "Modul 6":
