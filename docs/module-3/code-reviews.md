@@ -24,3 +24,7 @@ Beim Code Review gibt es sowohl für den Reviewer als auch den Reviewee einige w
 Wichtig für beide gemeinsam ist es, den Zyklus zwischen Feedback und Korrekturen sehr schnell zu halten. Code Reviews sowieso Korrekturen sollten daher so schnell wie möglich ausgeführt werden, um für alle Beteiligten das Wissen noch frisch im Gedächtnis zu halten.
 
 Für den Reviewer ist es zudem wichtig, klares Feedback zu geben um die Erwartungshaltung dem Reviewee gegenüber leicht verständlich zu machen. Da oft ein unterschiedlicher Erfahrungsstand zwischen den einzelnen Entwicklern existiert, ist es oft wichtig bei einem Code Review auch einige Hintergründe zu erklären WARUM ein bestimmtes Review oder Korrektur-Vorschlag abgegeben wurde.
+
+# Github Merge Request Screenshot
+
+![Github Screenshot](/img/github-mr.png)
