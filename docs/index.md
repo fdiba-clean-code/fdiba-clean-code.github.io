@@ -1,4 +1,4 @@
-# "Clean Code" - FDIBA - Winter Semester 2022
+# "Clean Code Development" - FDIBA
 
 Liebe Studenten,
 
