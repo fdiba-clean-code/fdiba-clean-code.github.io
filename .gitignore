@@ -1,2 +1,7 @@
 site
 **/**:Zone.Identifier
+
+.venv/
+bin/
+lib/
+include/
